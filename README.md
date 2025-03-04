@@ -1,4 +1,9 @@
-# 💫 About Me:
+Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)  𝙼𝚢 𝚗𝚊𝚖𝚎 𝚒𝚜 𝙽𝚊𝚟𝚎𝚎𝚗 𝙰𝚓𝚊𝚢 𝙺𝚊𝚛𝚊𝚜𝚞  ![Hacking GIF](https://user-images.githubusercontent.com/74038190/212747107-5b654ba5-31c6-4366-b42b-51b822e9bc52.gif)
+
+
+
+# 💫 About Me: 
+
 🔭 I’m currently working on<br>I am currently looking for a role in  Cybersecurity. Before that I worked has cybersecurity Engineer at the University of North Texas, where I assist students in cybersecurity labs, mentor them for industry certifications and develop hands-on exercises covering network security, cryptography, DevOps security and risk assessment. Additionally, I’m engaged in AI security research, focusing on ensuring compliance with security frameworks such as ISO 27001, NIST, and HIPAA.<br><br>👯 I’m looking to collaborate on<br>I’m eager to collaborate on offensive security research, penetration testing, security automation, and cloud security projects. I enjoy working on threat modeling, SIEM optimization, and improving security frameworks for AI systems.<br><br>🤝 I’m looking for help with<br>I’m interested in deepening my knowledge of advanced adversarial security techniques, red teaming strategies, and zero-trust architecture implementations. If you’re an expert in these areas, I’d love to exchange insights and learn from your experience!<br><br>🌱 I’m currently learning<br>I’m currently advancing my expertise in Security Orchestration, Automation and Response (SOAR) and threat intelligence platforms. I’m also working toward earning my Certified Information Systems Security Professional (CISSP) certification.<br><br>💬 Ask me about<br><br>Penetration testing & vulnerability management (Metasploit, Burp Suite, Cobalt Strike, BloodHound)<br>Security compliance frameworks (ISO 27001, NIST 800-53, SOC2, FedRAMP, MITRE ATT&CK)<br>Secure software development (Threat modeling, secure coding practices, DevSecOps)<br>Cloud and network security (AWS/Azure security, firewall configurations, network anomaly detection)<br>SIEM & Incident Response (Splunk, Microsoft Sentinel, QRadar, EDR solutions)<br>⚡ Fun fact<br>I once secured second place in the CanSec24 CTF challenge, where my team worked through forensics, reverse engineering, and web exploitation scenarios. I also enjoy breaking into Capture The Flag (CTF) competitions, testing my ethical hacking skills, and learning new attack vectors in my free time!<br><br>
 
 
@@ -21,4 +26,7 @@
 ---
 [![](https://visitcount.itsvg.in/api?id=naveenkarasu&icon=2&color=5)](https://visitcount.itsvg.in)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+
+
+# this is test
+---

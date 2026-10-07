@@ -94,11 +94,15 @@ jobs:
           name: profile-visuals
           path: .
 
+      # github-profile-3d-contrib writes ~10 variants; the README only uses these two.
+      - name: Drop unused 3D variants
+        run: find profile-3d-contrib -type f ! -name profile-night-green.svg ! -name profile-green.svg -delete
+
       - name: Commit refreshed assets
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add assets profile-3d-contrib
+          git add -A assets profile-3d-contrib
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh profile visuals"
           git push

@@ -138,6 +138,22 @@
 </p>
 
 <p align="center">
+  <a href="https://www.linkedin.com/in/naveenkarasu">LinkedIn</a>
+  ·
+  <a href="https://www.x.com/think_kun">X</a>
+  ·
+  <a href="https://thinkkun.medium.com/">Medium</a>
+  ·
+  <a href="https://www.dev.to/thinkkun">dev.to</a>
+  ·
+  <a href="https://thinkkun.hashnode.dev">Hashnode</a>
+  ·
+  <a href="https://stackoverflow.com/users/13547341/thinkkun">Stack Overflow</a>
+  ·
+  <a href="http://www.instagram.com/thinkkun">Instagram</a>
+</p>
+
+<p align="center">
   <a href="/naveenkarasu?tab=repositories">Repositories</a>
   ·
   <a href="/naveenkarasu/AI-log-investigator">AI Log Investigator</a>

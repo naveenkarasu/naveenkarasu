@@ -11,7 +11,6 @@ naveenkarasu/
 ├── README.md
 ├── CUSTOMIZE.md
 ├── assets/
-├── profile-3d-contrib/
 ├── scripts/
 └── .github/
     └── workflows/
@@ -24,8 +23,7 @@ naveenkarasu/
 
 This package includes placeholders for both generated contribution sections:
 
-- `profile-3d-contrib/profile-night-green.svg`
-- `profile-3d-contrib/profile-green.svg`
+- `assets/contributions.svg` / `assets/contributions-light.svg`
 - `assets/contribution-snake-dark.svg`
 - `assets/contribution-snake-light.svg`
 
@@ -76,12 +74,15 @@ Edit the three `project_card(...)` calls near the bottom of `scripts/build_stati
 
 ## 3D contribution graph
 
-The workflow uses `github-profile-3d-contrib` and keeps two generated files in the README:
+`generate_github_data.py` draws the night-green voxel terrain itself from the GitHub contribution calendar (log-scaled day heights, month labels, Less/More legend) into `assets/contributions.svg` and `assets/contributions-light.svg`. No third-party action is involved.
 
-- dark mode → `profile-night-green.svg`
-- light mode → `profile-green.svg`
+## Icons and social buttons
 
-The repository placeholders are replaced automatically on the first workflow run.
+Skill, certification and social icons come from `scripts/icons.json` (Simple Icons, CC0, and Lucide, ISC). `pill()` adds an icon automatically when the label is in `SKILL_ICONS`. Social buttons are separate SVGs in `assets/social/` so each one is its own link; GitHub cannot place links on top of an image.
+
+## Links
+
+Use absolute `https://github.com/...` URLs in `README.md`. GitHub rewrites relative links to paths inside this repository.
 
 ## Contribution snake
 
@@ -139,7 +140,7 @@ Muted text       #57606A
 
 - Anime/personality → hero banner and scene artwork.
 - Capsule render → rounded geometry and wave-like footer treatment, implemented locally.
-- 3D contributions → night-green dark view and green light view.
+- 3D contributions → custom night-green voxel terrain, dark and light.
 - Pixel profile → pixel mascot and compact system cards.
 - GitAscii → terminal-dot avatar plus contribution snake.
 - Readme Aura → glow, gradients, animated cursor, and luminous borders.

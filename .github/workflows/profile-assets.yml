@@ -53,12 +53,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/generate_github_data.py
 
-      - name: Generate 3D contribution calendars
-        uses: yoshi389111/github-profile-3d-contrib@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-
       - name: Generate contribution snakes
         uses: Platane/snk/svg-only@v3
         with:
@@ -71,9 +65,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: profile-visuals
-          path: |
-            assets/
-            profile-3d-contrib/
+          path: assets/
           if-no-files-found: error
           retention-days: 1
 
@@ -92,17 +84,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: profile-visuals
-          path: .
-
-      # github-profile-3d-contrib writes ~10 variants; the README only uses these two.
-      - name: Drop unused 3D variants
-        run: find profile-3d-contrib -type f ! -name profile-night-green.svg ! -name profile-green.svg -delete
+          path: assets
 
       - name: Commit refreshed assets
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add -A assets profile-3d-contrib
+          git add -A assets
           git diff --cached --quiet && exit 0
           git commit -m "chore: refresh profile visuals"
           git push

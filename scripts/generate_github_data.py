@@ -105,9 +105,12 @@ def contributions_svg(c):
     cap = max([day["contributionCount"] for week in weeks for day in week] or [1])
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img">',
              # README images can't see scrolling (GitHub strips loading="lazy"), so the terrain
-             # replays: a left-to-right rise, a long hold, then again.
-             '<style>@keyframes rise{0%{transform:scaleY(0)}12%,92%{transform:scaleY(1)}100%{transform:scaleY(0)}}'
-             '.b{transform-box:fill-box;transform-origin:50% 100%;animation:rise 12s cubic-bezier(.2,.8,.2,1) infinite both}</style>',
+             # replays on an 18s cycle shared by every column: each rises over 1.2s (staggered
+             # left to right over ~3.4s), holds, then drains away over 1s in the same wave.
+             # The empty tail (28% = 5s) is longer than the 3.4s stagger, so the whole graph is
+             # empty before the first column rises again.
+             '<style>@keyframes rise{0%{transform:scaleY(0)}6.7%,66.7%{transform:scaleY(1)}72.2%,100%{transform:scaleY(0)}}'
+             '.b{transform-box:fill-box;transform-origin:50% 100%;animation:rise 18s cubic-bezier(.2,.8,.2,1) infinite both}</style>',
              f'<rect width="{W}" height="{H}" rx="16" fill="{c["bg"]}"/>',
              f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="16" fill="{c["panel"]}" stroke="{c["border"]}" stroke-width="2"/>',
              f'<text x="28" y="44" fill="{c["green"]}" font-family="{FONT}" font-size="20" font-weight="700">GitHub Contributions</text>',
@@ -127,7 +130,7 @@ def contributions_svg(c):
             col = c["empty"] if n == 0 else c["levels"][min(3, int(4 * r))]
             x, by = x0 + i * pitch + ox, base - ox
             parts.append(
-                f'<g class="b" style="animation-delay:{i * .025 + (6 - row) * .02:.3f}s">'
+                f'<g class="b" style="animation-delay:{i * .06 + (6 - row) * .04:.3f}s">'
                 f'<path d="M{x} {by-h:.1f}h{cw}l{d} -{d}h-{cw}z" fill="{shade(col, 1.3)}"/>'
                 f'<path d="M{x+cw} {by-h:.1f}l{d} -{d}V{by-d}l-{d} {d}z" fill="{shade(col, .65)}"/>'
                 f'<rect x="{x}" y="{by-h:.1f}" width="{cw}" height="{h:.1f}" fill="{col}"/></g>')

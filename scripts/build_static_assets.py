@@ -293,3 +293,18 @@ for svg_path in sorted(ASSETS.rglob('*.svg')):
     make_light_variant(svg_path)
 
 print('Light-mode SVG variants generated.')
+
+
+# The top row sits beside the avatar without a table (GitHub always draws table borders),
+# so intro + status + skills are stacked into one image.
+def hero_right(suffix):
+    def uri(name):
+        return 'data:image/svg+xml;base64,' + b64encode((ASSETS / f'{name}{suffix}.svg').read_bytes()).decode('ascii')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="960" viewBox="0 0 1060 960" role="img">'
+            f'<image href="{uri("intro")}" x="0" y="0" width="680" height="240"/>'
+            f'<image href="{uri("system-status")}" x="700" y="0" width="360" height="240"/>'
+            f'<image href="{uri("skills")}" x="0" y="260" width="1060" height="700" preserveAspectRatio="xMidYMin meet"/></svg>')
+
+
+write('hero-right.svg', hero_right(''))
+write('hero-right-light.svg', hero_right('-light'))

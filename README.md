@@ -10,40 +10,9 @@
   <img src="./assets/header.svg" width="100%" alt="Naveen Karasu cybersecurity profile banner" />
 </p>
 
-<table width="100%">
-<tr>
-<td width="30%" valign="top" rowspan="2">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/ascii-profile.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/ascii-profile-light.svg" />
-    <img src="./assets/ascii-profile.svg" width="100%" alt="Terminal-style dotted profile portrait" />
-  </picture>
-</td>
-<td width="44%" valign="top">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/intro.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/intro-light.svg" />
-    <img src="./assets/intro.svg" width="100%" alt="Terminal introduction" />
-  </picture>
-</td>
-<td width="26%" valign="top">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/system-status.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/system-status-light.svg" />
-    <img src="./assets/system-status.svg" width="100%" alt="System status card" />
-  </picture>
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/skills.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./assets/skills-light.svg" />
-    <img src="./assets/skills.svg" width="100%" alt="Cybersecurity skills grouped by category" />
-  </picture>
-</td>
-</tr>
-</table>
+<p align="center">
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/ascii-profile.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/ascii-profile-light.svg" /><img src="./assets/ascii-profile.svg" width="27.5%" align="top" alt="Terminal-style dotted profile portrait" /></picture><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/hero-right.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/hero-right-light.svg" /><img src="./assets/hero-right.svg" width="71%" align="top" alt="Terminal introduction, system status and grouped cybersecurity skills" /></picture>
+</p>
 
 <table width="100%">
 <tr>

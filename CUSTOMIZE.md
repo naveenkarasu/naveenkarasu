@@ -80,6 +80,10 @@ Edit the three `project_card(...)` calls near the bottom of `scripts/build_stati
 
 Skill, certification and social icons come from `scripts/icons.json` (Simple Icons, CC0, and Lucide, ISC). `pill()` adds an icon automatically when the label is in `SKILL_ICONS`. Social buttons are separate SVGs in `assets/social/` so each one is its own link; GitHub cannot place links on top of an image.
 
+## Layout without table borders
+
+GitHub always draws gray borders around README table cells, so the README uses no tables. Rows whose panels don't need separate links (avatar + intro + status + skills, activity + certifications) are combined by `scripts/compose.py` into `assets/hero.svg` and `assets/activity-row.svg` on a 1200px grid with 20px gutters. Project cards stay separate images (each is its own link) at `width="33.3%"`, with the gutters built into each card's canvas.
+
 ## Links
 
 Use absolute `https://github.com/...` URLs in `README.md`. GitHub rewrites relative links to paths inside this repository.

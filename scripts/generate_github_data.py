@@ -154,14 +154,14 @@ def render(theme_name: str, c: dict[str, str]) -> None:
         f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="170" viewBox="0 0 1200 170" role="img">
 <rect width="1200" height="170" rx="16" fill="{c['bg']}"/>
 <rect x="1" y="1" width="1198" height="168" rx="16" fill="{c['panel']}" stroke="{c['border']}" stroke-width="2"/>
-<text x="24" y="34" fill="{c['green']}" font-family="{FONT}" font-size="16" font-weight="700">GITHUB SIGNALS</text>'''
+<text x="24" y="34" fill="{c['green']}" font-family="{FONT}" font-size="19" font-weight="700">GITHUB SIGNALS</text>'''
     ]
     for i, (label, value, color) in enumerate(cards):
         x = 24 + i * 292
         parts.append(
             f'<rect x="{x}" y="52" width="268" height="92" rx="12" fill="{c["panel2"]}" stroke="{color}" stroke-opacity=".4"/>'
-            f'<text x="{x+18}" y="78" fill="{c["muted"]}" font-family="{FONT}" font-size="11">{label}</text>'
-            f'<text x="{x+18}" y="118" fill="{c["text"]}" font-family="{FONT}" font-size="26" font-weight="700">{value}</text>'
+            f'<text x="{x+18}" y="78" fill="{c["muted"]}" font-family="{FONT}" font-size="14">{label}</text>'
+            f'<text x="{x+18}" y="118" fill="{c["text"]}" font-family="{FONT}" font-size="32" font-weight="700">{value}</text>'
         )
     parts.append("</svg>")
     stats_name = "stats.svg" if theme_name == "dark" else "stats-light.svg"
@@ -171,15 +171,15 @@ def render(theme_name: str, c: dict[str, str]) -> None:
         f'''<svg xmlns="http://www.w3.org/2000/svg" width="600" height="260" viewBox="0 0 600 260" role="img">
 <rect width="600" height="260" rx="16" fill="{c['bg']}"/>
 <rect x="1" y="1" width="598" height="258" rx="16" fill="{c['panel']}" stroke="{c['border']}" stroke-width="2"/>
-<text x="24" y="38" fill="{c['green']}" font-family="{FONT}" font-size="16" font-weight="700">RECENT ACTIVITY</text>'''
+<text x="24" y="38" fill="{c['green']}" font-family="{FONT}" font-size="19" font-weight="700">RECENT ACTIVITY</text>'''
     ]
     colors = [c["green"], c["cyan"], c["purple"], c["pink"]]
     for i, event in enumerate(events[:4]):
         y = 82 + i * 42
-        line = summarize(event)[:63]
+        line = summarize(event)[:50]
         parts.append(
             f'<circle cx="31" cy="{y-5}" r="5" fill="{colors[i % 4]}"/>'
-            f'<text x="49" y="{y}" fill="{c["text"]}" font-family="{FONT}" font-size="12">{escape(line)}</text>'
+            f'<text x="49" y="{y}" fill="{c["text"]}" font-family="{FONT}" font-size="15">{escape(line)}</text>'
         )
     if not events:
         parts.append(

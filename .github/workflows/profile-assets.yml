@@ -53,6 +53,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/generate_github_data.py
 
+      - name: Compose borderless layout rows
+        run: python scripts/compose.py
+
       - name: Generate contribution snakes
         uses: Platane/snk/svg-only@v3
         with:

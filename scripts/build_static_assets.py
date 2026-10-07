@@ -99,15 +99,12 @@ write('header.svg', svg_wrap(1200, 340, body, extra))
 # intro.svg
 body = f'''
 <rect x="1" y="1" width="678" height="238" rx="16" fill="{C['panel']}" stroke="url(#panelGlow)" stroke-width="2"/>
-<text x="24" y="38" fill="{C['green']}" font-family="{FONT}" font-size="17" font-weight="700">naveen@github:~$</text>
-<text x="24" y="78" fill="{C['text']}" font-family="{FONT}" font-size="15">I build security-focused tools and</text>
-<text x="24" y="104" fill="{C['text']}" font-family="{FONT}" font-size="15">automation for incident investigation,</text>
-<text x="24" y="130" fill="{C['text']}" font-family="{FONT}" font-size="15">threat detection, cloud security and</text>
-<text x="24" y="156" fill="{C['text']}" font-family="{FONT}" font-size="15">secure software delivery.</text>
+<text x="24" y="40" fill="{C['green']}" font-family="{FONT}" font-size="19" font-weight="700">naveen@github:~$</text>
+<text font-family="{FONT}" font-size="18" fill="{C['text']}"><tspan x="24" y="76">I build security-focused</tspan><tspan x="24" y="102">tools and automation for</tspan><tspan x="24" y="128">incident investigation,</tspan><tspan x="24" y="154">threat detection, cloud</tspan><tspan x="24" y="180">security &amp; secure delivery.</tspan></text>
 <g clip-path="url(#iclip)"><image href="{data_uri(ART/'intro.jpg')}" x="430" y="14" width="236" height="212" preserveAspectRatio="xMidYMid slice"/><rect x="430" y="14" width="80" height="212" fill="url(#ifade)"/></g>
 <rect x="556" y="134" width="100" height="80" rx="8" fill="{C['panel']}" fill-opacity=".85" stroke="{C['border']}"/>
 <text font-family="{FONT}" font-size="11" fill="{C['text']}"><tspan x="566" y="153">✓ Coffee</tspan><tspan x="566" y="170">✓ Code</tspan><tspan x="566" y="187">✓ Security</tspan><tspan x="566" y="204">✓ Better Systems</tspan></text>
-<rect x="24" y="201" width="11" height="20" rx="2" fill="{C['text']}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>
+<rect x="24" y="200" width="11" height="20" rx="2" fill="{C['text']}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>
 '''
 write('intro.svg', svg_wrap(680, 240, body, f'''<clipPath id="iclip"><rect x="430" y="14" width="236" height="212" rx="10"/></clipPath>
   <linearGradient id="ifade" x1="0" x2="1"><stop stop-color="{C['panel']}"/><stop offset="1" stop-color="{C['panel']}" stop-opacity="0"/></linearGradient>'''))
@@ -115,15 +112,15 @@ write('intro.svg', svg_wrap(680, 240, body, f'''<clipPath id="iclip"><rect x="43
 # system-status.svg
 rows = [('FOCUSED', .96, C['green']), ('LEARNING', .83, C['cyan']), ('BUILDING', .74, C['blue']), ('CONTRIBUTING', .61, C['purple'])]
 body = f'<rect x="1" y="1" width="358" height="238" rx="16" fill="{C["panel"]}" stroke="{C["border"]}" stroke-width="2"/>'
-body += f'<text x="24" y="38" fill="{C["green"]}" font-family="{FONT}" font-size="17" font-weight="700">SYSTEM STATUS</text>'
-body += f'<circle cx="325" cy="32" r="6" fill="{C["green"]}" filter="url(#softGlow)"/><text x="264" y="37" fill="{C["text"]}" font-family="{FONT}" font-size="12">Online</text>'
+body += f'<text x="24" y="38" fill="{C["green"]}" font-family="{FONT}" font-size="19" font-weight="700">SYSTEM STATUS</text>'
+body += f'<circle cx="325" cy="32" r="6" fill="{C["green"]}" filter="url(#softGlow)"/><text x="314" y="38" text-anchor="end" fill="{C["text"]}" font-family="{FONT}" font-size="15">Online</text>'
 y = 72
 for label, p, col in rows:
-    body += f'<text x="24" y="{y+12}" fill="{C["text"]}" font-family="{FONT}" font-size="13">{label}</text>'
-    body += f'<rect x="150" y="{y}" width="140" height="13" rx="7" fill="{C["grid"]}"/>'
-    body += f'<rect x="150" y="{y}" width="{140*p:.0f}" height="13" rx="7" fill="{col}"/>'
-    body += f'<text x="326" y="{y+11}" text-anchor="end" fill="{C["muted"]}" font-family="{FONT}" font-size="11">{int(p*100)}%</text>'
-    y += 38
+    body += f'<text x="24" y="{y+13}" fill="{C["text"]}" font-family="{FONT}" font-size="15">{label}</text>'
+    body += f'<rect x="158" y="{y}" width="130" height="14" rx="7" fill="{C["grid"]}"/>'
+    body += f'<rect x="158" y="{y}" width="{130*p:.0f}" height="14" rx="7" fill="{col}"/>'
+    body += f'<text x="338" y="{y+13}" text-anchor="end" fill="{C["muted"]}" font-family="{FONT}" font-size="14">{int(p*100)}%</text>'
+    y += 40
 write('system-status.svg', svg_wrap(360, 240, body))
 
 # skills.svg
@@ -141,14 +138,14 @@ y = 66
 accents=[C['green'],C['cyan'],C['blue'],C['green'],C['cyan'],C['purple']]
 for (cat, items), accent in zip(skills, accents):
     words = cat.split(' & ')
-    body += f'<text fill="{accent}" font-family="{FONT}" font-size="13" font-weight="700"><tspan x="24" y="{y+16}">{escape(words[0])}{" &amp;" if len(words) > 1 else ""}</tspan>' + (f'<tspan x="24" y="{y+33}">{escape(words[1])}</tspan>' if len(words) > 1 else '') + '</text>'
+    body += f'<text fill="{accent}" font-family="{FONT}" font-size="14" font-weight="700"><tspan x="24" y="{y+17}">{escape(words[0])}{" &amp;" if len(words) > 1 else ""}</tspan>' + (f'<tspan x="24" y="{y+35}">{escape(words[1])}</tspan>' if len(words) > 1 else '') + '</text>'
     x, yy = 190, y
     for item in items:
-        part, w = pill(x, yy, item, accent, h=36, fs=14)
+        part, w = pill(x, yy, item, accent, h=38, fs=15)
         if x + w > W - 18:
-            yy += 44
+            yy += 46
             x = 190
-            part, w = pill(x, yy, item, accent, h=36, fs=14)
+            part, w = pill(x, yy, item, accent, h=38, fs=15)
         body += part
         x += w + 9
     y = yy + 58
@@ -157,7 +154,7 @@ body = f'<rect x="1" y="1" width="{W-2}" height="{height-2}" rx="16" fill="{C["p
 write('skills.svg', svg_wrap(W, height, body))
 
 
-def project_card(filename, title, repo, tags, desc_lines, thumb, accent):
+def project_card(filename, title, repo, tags, desc_lines, thumb, accent, pos):
     uri=data_uri(thumb)
     body = f'<rect x="1" y="1" width="358" height="338" rx="16" fill="{C["panel"]}" stroke="{accent}" stroke-opacity=".55" stroke-width="2"/>'
     body += f'<image href="{uri}" x="14" y="14" width="332" height="86" preserveAspectRatio="xMidYMid slice"/>'
@@ -165,27 +162,33 @@ def project_card(filename, title, repo, tags, desc_lines, thumb, accent):
     body += f'<text x="18" y="128" fill="{C["text"]}" font-family="{FONT}" font-size="18" font-weight="700">{escape(title)}</text>'
     x=18
     for t in tags:
-        part,w = pill(x,145,t,accent,h=26,fs=11)
+        part,w = pill(x,145,t,accent,h=28,fs=11)
         body += part
         x += w+6
     yy=205
     for line in desc_lines:
-        body += f'<text x="18" y="{yy}" fill="{C["muted"]}" font-family="{FONT}" font-size="12">{escape(line)}</text>'
-        yy += 20
+        body += f'<text x="18" y="{yy}" fill="{C["muted"]}" font-family="{FONT}" font-size="13">{escape(line)}</text>'
+        yy += 21
     body += f'<rect x="18" y="286" width="153" height="34" rx="9" fill="{C["panel2"]}" stroke="{accent}"/>'
     body += f'<text x="94" y="308" text-anchor="middle" fill="{C["text"]}" font-family="{FONT}" font-size="12">VIEW REPOSITORY →</text>'
     body += f'<text x="342" y="325" text-anchor="end" fill="{C["muted"]}" font-family="{FONT}" font-size="9">{escape(repo)}</text>'
-    (PROJECTS/filename).write_text(svg_wrap(360,340,body),encoding='utf-8')
+    card = svg_wrap(360, 340, body).replace('<rect width="100%" height="100%" rx="16"', '<rect width="360" height="340" rx="16"')
+    inner = card[card.index('>') + 1:card.rindex('</svg>')]
+    cw = (1200 - 2 * 20) / 3  # three cards + two 20px gutters span the 1200px page grid
+    x = pos * (400 - cw) / 2   # left card flush left, middle centred, right card flush right
+    (PROJECTS/filename).write_text(
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="400" height="{340*cw/360:.0f}" viewBox="0 0 400 {340*cw/360:.0f}" role="img">'
+        f'<svg x="{x:.2f}" width="{cw:.2f}" height="{340*cw/360:.2f}" viewBox="0 0 360 340">{inner}</svg></svg>', encoding='utf-8')
 
-project_card('ai-log-investigator.svg','AI Log Investigator','AI-log-investigator',['Python','FastAPI','Docker','LLM'],['AI-assisted log investigation and','root-cause analysis with offline fallbacks.'],ART/'ai-log-investigator.jpg',C['cyan'])
-project_card('cehv12-study-guide.svg','CEHv12 Study Guide','CEHV12_StudyGuide',['Security','Training','Labs'],['Open-source cybersecurity study guide','with practical exercises and labs.'],ART/'cehv12-study-guide.jpg',C['pink'])
-project_card('portfolio-3d.svg','Portfolio 3D','portfolio-3d',['Three.js','TypeScript','WebGPU'],['Interactive 3D portfolio with physics,','lighting and dynamic environments.'],ART/'portfolio-3d.jpg',C['blue'])
+project_card('ai-log-investigator.svg','AI Log Investigator','AI-log-investigator',['Python','FastAPI','Docker','LLM'],['AI-assisted log investigation and','root-cause analysis with offline fallbacks.'],ART/'ai-log-investigator.jpg',C['cyan'],0)
+project_card('cehv12-study-guide.svg','CEHv12 Study Guide','CEHV12_StudyGuide',['Security','Training','Labs'],['Open-source cybersecurity study guide','with practical exercises and labs.'],ART/'cehv12-study-guide.jpg',C['pink'],1)
+project_card('portfolio-3d.svg','Portfolio 3D','portfolio-3d',['Three.js','TypeScript','WebGPU'],['Interactive 3D portfolio with physics,','lighting and dynamic environments.'],ART/'portfolio-3d.jpg',C['blue'],2)
 
 # certifications: 2x2 capsules with icons, like the mockup
 certs = [('CEH', 'v12', 'target', C['red']), ('AWS', 'Cloud', 'amazonwebservices', C['amber']),
          ('Azure', 'Security', 'microsoftazure', C['cyan']), ('CISSP', 'In progress', 'lock', C['green'])]
 body = f'<rect x="1" y="1" width="598" height="258" rx="16" fill="{C["panel"]}" stroke="{C["border"]}" stroke-width="2"/>'
-body += f'<text x="24" y="38" fill="{C["green"]}" font-family="{FONT}" font-size="16" font-weight="700">CERTIFICATIONS / LEARNING</text>'
+body += f'<text x="24" y="38" fill="{C["green"]}" font-family="{FONT}" font-size="19" font-weight="700">CERTIFICATIONS / LEARNING</text>'
 for i, (name, sub, ic, col) in enumerate(certs):
     x, y = 24 + (i % 2) * 284, 62 + (i // 2) * 96
     body += f'<rect x="{x}" y="{y}" width="268" height="84" rx="42" fill="{C["panel2"]}" stroke="{col}" stroke-opacity=".55" stroke-width="1.5"/>'
@@ -248,7 +251,7 @@ body = f'''<g clip-path="url(#fclip)"><rect width="1200" height="240" fill="{C['
 <text x="42" y="82" fill="{C['green']}" font-family="{FONT}" font-size="24" font-weight="700">LET'S CONNECT</text>
 <text x="42" y="120" fill="{C['text']}" font-family="{FONT}" font-size="15">Open to collaboration on security, automation</text>
 <text x="42" y="144" fill="{C['text']}" font-family="{FONT}" font-size="15">and interesting projects.</text>
-<text x="42" y="190" fill="{C['muted']}" font-family="{FONT}" font-size="12">Thanks for visiting! ⭐ Follow for more security and coding projects.</text>
+<text x="42" y="192" fill="{C['muted']}" font-family="{FONT}" font-size="15">Thanks for visiting! ⭐ Follow for more security and coding projects.</text>
 '''
 write('footer.svg', svg_wrap(1200, 240, body, extra))
 
@@ -293,18 +296,3 @@ for svg_path in sorted(ASSETS.rglob('*.svg')):
     make_light_variant(svg_path)
 
 print('Light-mode SVG variants generated.')
-
-
-# The top row sits beside the avatar without a table (GitHub always draws table borders),
-# so intro + status + skills are stacked into one image.
-def hero_right(suffix):
-    def uri(name):
-        return 'data:image/svg+xml;base64,' + b64encode((ASSETS / f'{name}{suffix}.svg').read_bytes()).decode('ascii')
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="960" viewBox="0 0 1060 960" role="img">'
-            f'<image href="{uri("intro")}" x="0" y="0" width="680" height="240"/>'
-            f'<image href="{uri("system-status")}" x="700" y="0" width="360" height="240"/>'
-            f'<image href="{uri("skills")}" x="0" y="260" width="1060" height="700" preserveAspectRatio="xMidYMin meet"/></svg>')
-
-
-write('hero-right.svg', hero_right(''))
-write('hero-right-light.svg', hero_right('-light'))

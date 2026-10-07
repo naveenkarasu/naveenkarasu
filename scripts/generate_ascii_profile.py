@@ -50,8 +50,6 @@ def render(theme_name: str, colors: dict[str, str]) -> None:
     parts = [
         f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Terminal-style pixel portrait of {USERNAME}">
 <defs><filter id="g"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-<rect width="100%" height="100%" rx="16" fill="{c['bg']}"/>
-<rect x="1" y="1" width="298" height="698" rx="16" fill="{c['panel']}" stroke="{c['border']}" stroke-width="2"/>
 <text x="20" y="29" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13">avatar://{USERNAME}</text>
 <text x="252" y="29" text-anchor="end" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13">Online</text>
 '''

@@ -28,12 +28,13 @@ def svg_wrap(width, height, body, extra_defs=''):
 </svg>'''
 
 
-def pill(x, y, text, accent=None, h=34):
+def pill(x, y, text, accent=None, h=34, fs=14):
     accent = accent or C['cyan']
-    w = max(72, 22 + len(text) * 8.0)
+    # monospace glyphs are ~0.6em wide; 27px left inset for the dot + 12px right padding
+    w = 39 + len(text) * fs * 0.62
     return (f'<rect x="{x}" y="{y}" width="{w:.0f}" height="{h}" rx="9" fill="{C["panel2"]}" stroke="{accent}" stroke-opacity=".50"/>'
             f'<circle cx="{x+15}" cy="{y+h/2}" r="4" fill="{accent}"/>'
-            f'<text x="{x+27}" y="{y+h/2+5}" fill="{C["text"]}" font-family="{FONT}" font-size="14">{escape(text)}</text>'), w
+            f'<text x="{x+27}" y="{y+h/2+5}" fill="{C["text"]}" font-family="{FONT}" font-size="{fs}">{escape(text)}</text>'), w
 
 
 def write(name, content):
@@ -56,12 +57,12 @@ write('intro.svg', svg_wrap(680, 240, body))
 rows = [('FOCUSED', .96, C['green']), ('LEARNING', .83, C['cyan']), ('BUILDING', .74, C['blue']), ('CONTRIBUTING', .61, C['purple'])]
 body = f'<rect x="1" y="1" width="358" height="238" rx="16" fill="{C["panel"]}" stroke="{C["border"]}" stroke-width="2"/>'
 body += f'<text x="24" y="38" fill="{C["green"]}" font-family="{FONT}" font-size="17" font-weight="700">SYSTEM STATUS</text>'
-body += f'<circle cx="325" cy="32" r="6" fill="{C["green"]}" filter="url(#softGlow)"/><text x="278" y="37" fill="{C["text"]}" font-family="{FONT}" font-size="12">Online</text>'
+body += f'<circle cx="325" cy="32" r="6" fill="{C["green"]}" filter="url(#softGlow)"/><text x="264" y="37" fill="{C["text"]}" font-family="{FONT}" font-size="12">Online</text>'
 y = 72
 for label, p, col in rows:
     body += f'<text x="24" y="{y+12}" fill="{C["text"]}" font-family="{FONT}" font-size="13">{label}</text>'
-    body += f'<rect x="150" y="{y}" width="174" height="13" rx="7" fill="{C["grid"]}"/>'
-    body += f'<rect x="150" y="{y}" width="{174*p:.0f}" height="13" rx="7" fill="{col}"/>'
+    body += f'<rect x="150" y="{y}" width="140" height="13" rx="7" fill="{C["grid"]}"/>'
+    body += f'<rect x="150" y="{y}" width="{140*p:.0f}" height="13" rx="7" fill="{col}"/>'
     body += f'<text x="326" y="{y+11}" text-anchor="end" fill="{C["muted"]}" font-family="{FONT}" font-size="11">{int(p*100)}%</text>'
     y += 38
 write('system-status.svg', svg_wrap(360, 240, body))
@@ -139,8 +140,8 @@ def project_card(filename, title, repo, tags, desc_lines, thumb, accent):
     body += f'<text x="18" y="128" fill="{C["text"]}" font-family="{FONT}" font-size="18" font-weight="700">{escape(title)}</text>'
     x=18
     for t in tags:
-        part,w = pill(x,145,t,accent,h=26)
-        body += part.replace('font-size="14"','font-size="11"')
+        part,w = pill(x,145,t,accent,h=26,fs=11)
+        body += part
         x += w+6
     yy=205
     for line in desc_lines:
@@ -191,7 +192,7 @@ body = f'''<path d="M0 28 Q180 6 350 30 T700 30 T1050 26 T1200 20 V160 H0Z" fill
 <text x="42" y="82" fill="{C['green']}" font-family="{FONT}" font-size="21" font-weight="700">LET'S CONNECT</text>
 <text x="42" y="109" fill="{C['text']}" font-family="{FONT}" font-size="13">Security automation • Cloud security • DevSecOps • AI security</text>
 <text x="42" y="136" fill="{C['muted']}" font-family="{FONT}" font-size="11">Built as a custom GitHub README system UI — terminal, pixel, aura and capsule inspired.</text>
-<image href="{art}" x="980" y="53" width="188" height="72" preserveAspectRatio="xMidYMid slice"/>
+<image href="{art}" x="1050" y="34" width="126" height="120" preserveAspectRatio="xMidYMid meet"/>
 '''
 write('footer.svg', svg_wrap(1200,160,body,extra))
 

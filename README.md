@@ -43,20 +43,12 @@
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/naveenkarasu"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/linkedin.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/linkedin-light.svg" /><img src="./assets/social/linkedin.svg" height="44" alt="LinkedIn" /></picture></a>
-  <a href="https://github.com/naveenkarasu"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/github.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/github-light.svg" /><img src="./assets/social/github.svg" height="44" alt="GitHub" /></picture></a>
-  <a href="https://www.x.com/think_kun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/x.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/x-light.svg" /><img src="./assets/social/x.svg" height="44" alt="X" /></picture></a>
-  <a href="https://thinkkun.medium.com/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/medium.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/medium-light.svg" /><img src="./assets/social/medium.svg" height="44" alt="Medium" /></picture></a>
-  <a href="https://www.dev.to/thinkkun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/devdotto.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/devdotto-light.svg" /><img src="./assets/social/devdotto.svg" height="44" alt="dev.to" /></picture></a>
-  <a href="https://thinkkun.hashnode.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/hashnode.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/hashnode-light.svg" /><img src="./assets/social/hashnode.svg" height="44" alt="Hashnode" /></picture></a>
-  <a href="https://stackoverflow.com/users/13547341/thinkkun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/stackoverflow.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/stackoverflow-light.svg" /><img src="./assets/social/stackoverflow.svg" height="44" alt="Stack Overflow" /></picture></a>
-  <a href="https://www.instagram.com/thinkkun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/instagram.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/instagram-light.svg" /><img src="./assets/social/instagram.svg" height="44" alt="Instagram" /></picture></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/naveenkarasu?tab=repositories">Repositories</a>
-  ·
-  <a href="https://github.com/naveenkarasu/AI-log-investigator">AI Log Investigator</a>
-  ·
-  <a href="https://github.com/naveenkarasu/CEHV12_StudyGuide">CEHv12 Study Guide</a>
+  <a href="https://www.linkedin.com/in/naveenkarasu"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/linkedin.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/linkedin-light.svg" /><img src="./assets/social/linkedin.svg" height="48" alt="LinkedIn" /></picture></a>
+  <a href="https://github.com/naveenkarasu"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/github.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/github-light.svg" /><img src="./assets/social/github.svg" height="48" alt="GitHub" /></picture></a>
+  <a href="https://www.x.com/think_kun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/x.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/x-light.svg" /><img src="./assets/social/x.svg" height="48" alt="X" /></picture></a>
+  <a href="https://thinkkun.medium.com/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/medium.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/medium-light.svg" /><img src="./assets/social/medium.svg" height="48" alt="Medium" /></picture></a>
+  <a href="https://www.dev.to/thinkkun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/devdotto.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/devdotto-light.svg" /><img src="./assets/social/devdotto.svg" height="48" alt="dev.to" /></picture></a>
+  <a href="https://thinkkun.hashnode.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/hashnode.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/hashnode-light.svg" /><img src="./assets/social/hashnode.svg" height="48" alt="Hashnode" /></picture></a>
+  <a href="https://stackoverflow.com/users/13547341/thinkkun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/stackoverflow.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/stackoverflow-light.svg" /><img src="./assets/social/stackoverflow.svg" height="48" alt="Stack Overflow" /></picture></a>
+  <a href="https://www.instagram.com/thinkkun"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/social/instagram.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/social/instagram-light.svg" /><img src="./assets/social/instagram.svg" height="48" alt="Instagram" /></picture></a>
 </p>

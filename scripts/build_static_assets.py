@@ -214,11 +214,9 @@ SOCIAL.mkdir(exist_ok=True)
 for name, ic, col in [('LinkedIn', 'linkedin', C['cyan']), ('GitHub', 'github', C['green']), ('X', 'x', C['text']),
                       ('Medium', 'medium', C['text']), ('dev.to', 'devdotto', C['text']), ('Hashnode', 'hashnode', C['blue']),
                       ('Stack Overflow', 'stackoverflow', C['amber']), ('Instagram', 'instagram', C['pink'])]:
-    w = 58 + len(name) * 15 * .62
-    btn = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w:.0f}" height="44" viewBox="0 0 {w:.0f} 44" role="img">'
-           f'<rect x="1" y="1" width="{w-2:.0f}" height="42" rx="10" fill="{C["panel"]}" stroke="{col}" stroke-opacity=".7" stroke-width="1.5"/>'
-           + icon(ic, 14, 12, 20, col) +
-           f'<text x="44" y="27" fill="{C["text"]}" font-family="{FONT}" font-size="15">{escape(name)}</text></svg>')
+    btn = (f'<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="{escape(name)}">'
+           f'<rect x="1" y="1" width="46" height="46" rx="12" fill="{C["panel"]}" stroke="{col}" stroke-opacity=".7" stroke-width="1.5"/>'
+           + icon(ic, 13, 13, 22, col) + '</svg>')
     (SOCIAL / f'{ic}.svg').write_text(btn, encoding='utf-8')
 
 # pixel cat mascot (sits at the end of the contribution snake, like the mockup)

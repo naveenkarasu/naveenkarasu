@@ -5,7 +5,7 @@ This archive is ready to extract directly into the root of the `naveenkarasu` pr
 ## Render-critical files included before any workflow runs
 
 - `README.md`
-- `assets/header-banner.png`
+- `assets/header.svg` (built from `assets/art/header.jpg`)
 - dark + light terminal/profile/status/skills/project/stats/activity/certification/footer panels
 - dark + light pixel mascot
 - dark + light contribution-snake placeholders

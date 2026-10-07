@@ -6,12 +6,12 @@
 -->
 
 <p align="center">
-  <img src="./assets/header-banner.png" width="100%" alt="Naveen Karasu cybersecurity profile banner" />
+  <img src="./assets/header.svg" width="100%" alt="Naveen Karasu cybersecurity profile banner" />
 </p>
 
 <table width="100%">
 <tr>
-<td width="26%" valign="top">
+<td width="26%" valign="top" rowspan="2">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/ascii-profile.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./assets/ascii-profile-light.svg" />
@@ -33,15 +33,16 @@
   </picture>
 </td>
 </tr>
-</table>
-
-<p align="center">
+<tr>
+<td colspan="2" valign="top">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/skills.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./assets/skills-light.svg" />
     <img src="./assets/skills.svg" width="100%" alt="Cybersecurity skills grouped by category" />
   </picture>
-</p>
+</td>
+</tr>
+</table>
 
 <table width="100%">
 <tr>

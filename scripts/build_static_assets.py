@@ -37,21 +37,51 @@ def pill(x, y, text, accent=None, h=34, fs=14):
             f'<text x="{x+27}" y="{y+h/2+5}" fill="{C["text"]}" font-family="{FONT}" font-size="{fs}">{escape(text)}</text>'), w
 
 
+def data_uri(path):
+    mime = 'jpeg' if Path(path).suffix == '.jpg' else 'png'
+    return f'data:image/{mime};base64,' + b64encode(Path(path).read_bytes()).decode('ascii')
+
+
+ART = ASSETS / 'art'
+
+
 def write(name, content):
     (ASSETS / name).write_text(content, encoding='utf-8')
+
+# header.svg (stays dark in light mode, like the mockup)
+extra = f'''<linearGradient id="fadeL" x1="0" x2="1"><stop stop-color="{C['bg']}"/><stop offset=".34" stop-color="{C['bg']}" stop-opacity=".9"/><stop offset=".6" stop-color="{C['bg']}" stop-opacity="0"/></linearGradient>
+  <clipPath id="hclip"><rect width="1200" height="340" rx="16"/></clipPath>'''
+body = f'''<g clip-path="url(#hclip)"><image href="{data_uri(ART/'header.jpg')}" x="270" y="0" width="1020" height="340" preserveAspectRatio="xMidYMid slice"/><rect width="1200" height="340" fill="url(#fadeL)"/></g>
+<rect x="1" y="1" width="1198" height="338" rx="16" fill="none" stroke="{C['border']}" stroke-width="2"/>
+<text x="48" y="118" fill="{C['text']}" font-family="{FONT}" font-size="46" font-weight="700" letter-spacing="2">NAVEEN KARASU</text>
+<rect x="424" y="80" width="14" height="44" fill="{C['green']}"/>
+<text x="48" y="160" fill="{C['cyan']}" font-family="{FONT}" font-size="24">Cybersecurity Engineer</text>
+<text x="48" y="200" fill="{C['text']}" font-family="{FONT}" font-size="15">Security Automation • Cloud Security • DevSecOps • AI Security</text>
+<text font-family="'Segoe Script','Brush Script MT',cursive" font-size="22" font-style="italic" fill="{C['text']}" text-anchor="middle"><tspan x="1110" y="62">Turning</tspan><tspan x="1110" y="90">Curiosity</tspan><tspan x="1110" y="118">into</tspan><tspan x="1110" y="146">Security</tspan></text>
+'''
+x = 48
+for chip in ['Build', 'Detect', 'Automate', 'Secure', 'Learn']:
+    w = 36 + len(chip) * 15 * 0.62
+    body += f'<rect x="{x}" y="232" width="{w:.0f}" height="36" rx="18" fill="{C["panel"]}" fill-opacity=".7" stroke="{C["green"]}" stroke-width="2"/>'
+    body += f'<text x="{x+w/2:.0f}" y="255" text-anchor="middle" fill="{C["green"]}" font-family="{FONT}" font-size="15">{chip}</text>'
+    x += w + 14
+write('header.svg', svg_wrap(1200, 340, body, extra))
 
 # intro.svg
 body = f'''
 <rect x="1" y="1" width="678" height="238" rx="16" fill="{C['panel']}" stroke="url(#panelGlow)" stroke-width="2"/>
 <text x="24" y="38" fill="{C['green']}" font-family="{FONT}" font-size="17" font-weight="700">naveen@github:~$</text>
-<text x="24" y="78" fill="{C['text']}" font-family="{FONT}" font-size="17">I build security-focused tools and automation</text>
-<text x="24" y="106" fill="{C['text']}" font-family="{FONT}" font-size="17">for incident investigation, threat detection,</text>
-<text x="24" y="134" fill="{C['text']}" font-family="{FONT}" font-size="17">cloud security and secure software delivery.</text>
-<text x="24" y="182" fill="{C['cyan']}" font-family="{FONT}" font-size="15">Security Automation • Cloud Security • DevSecOps • AI Security</text>
+<text x="24" y="78" fill="{C['text']}" font-family="{FONT}" font-size="15">I build security-focused tools and</text>
+<text x="24" y="104" fill="{C['text']}" font-family="{FONT}" font-size="15">automation for incident investigation,</text>
+<text x="24" y="130" fill="{C['text']}" font-family="{FONT}" font-size="15">threat detection, cloud security and</text>
+<text x="24" y="156" fill="{C['text']}" font-family="{FONT}" font-size="15">secure software delivery.</text>
+<g clip-path="url(#iclip)"><image href="{data_uri(ART/'intro.jpg')}" x="430" y="14" width="236" height="212" preserveAspectRatio="xMidYMid slice"/><rect x="430" y="14" width="80" height="212" fill="url(#ifade)"/></g>
+<rect x="556" y="134" width="100" height="80" rx="8" fill="{C['panel']}" fill-opacity=".85" stroke="{C['border']}"/>
+<text font-family="{FONT}" font-size="11" fill="{C['text']}"><tspan x="566" y="153">✓ Coffee</tspan><tspan x="566" y="170">✓ Code</tspan><tspan x="566" y="187">✓ Security</tspan><tspan x="566" y="204">✓ Better Systems</tspan></text>
 <rect x="24" y="201" width="11" height="20" rx="2" fill="{C['text']}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></rect>
-<path d="M540 28H650V52" fill="none" stroke="{C['green']}" stroke-opacity=".35"/><path d="M650 188V212H540" fill="none" stroke="{C['cyan']}" stroke-opacity=".35"/>
 '''
-write('intro.svg', svg_wrap(680, 240, body))
+write('intro.svg', svg_wrap(680, 240, body, f'''<clipPath id="iclip"><rect x="430" y="14" width="236" height="212" rx="10"/></clipPath>
+  <linearGradient id="ifade" x1="0" x2="1"><stop stop-color="{C['panel']}"/><stop offset="1" stop-color="{C['panel']}" stop-opacity="0"/></linearGradient>'''))
 
 # system-status.svg
 rows = [('FOCUSED', .96, C['green']), ('LEARNING', .83, C['cyan']), ('BUILDING', .74, C['blue']), ('CONTRIBUTING', .61, C['purple'])]
@@ -127,10 +157,6 @@ for (cat, items), accent in zip(skills, accents):
     y = max(y+64, yy+52)
 write('skills.svg', svg_wrap(1200, height, body))
 
-# Helpers for project cards with embedded thumbnail
-def data_uri(path):
-    raw = Path(path).read_bytes()
-    return 'data:image/png;base64,' + b64encode(raw).decode('ascii')
 
 def project_card(filename, title, repo, tags, desc_lines, thumb, accent):
     uri=data_uri(thumb)
@@ -152,9 +178,9 @@ def project_card(filename, title, repo, tags, desc_lines, thumb, accent):
     body += f'<text x="342" y="325" text-anchor="end" fill="{C["muted"]}" font-family="{FONT}" font-size="9">{escape(repo)}</text>'
     (PROJECTS/filename).write_text(svg_wrap(360,340,body),encoding='utf-8')
 
-project_card('ai-log-investigator.svg','AI Log Investigator','AI-log-investigator',['Python','FastAPI','Docker','LLM'],['AI-assisted log investigation and','root-cause analysis with offline fallbacks.'],ASSETS/'ai-log-investigator.png',C['cyan'])
-project_card('cehv12-study-guide.svg','CEHv12 Study Guide','CEHV12_StudyGuide',['Security','Training','Labs'],['Open-source cybersecurity study guide','with practical exercises and labs.'],ASSETS/'cehv12-study-guide.png',C['pink'])
-project_card('portfolio-3d.svg','Portfolio 3D','portfolio-3d',['Three.js','TypeScript','WebGPU'],['Interactive 3D portfolio with physics,','lighting and dynamic environments.'],ASSETS/'portfolio-3d.png',C['blue'])
+project_card('ai-log-investigator.svg','AI Log Investigator','AI-log-investigator',['Python','FastAPI','Docker','LLM'],['AI-assisted log investigation and','root-cause analysis with offline fallbacks.'],ART/'ai-log-investigator.jpg',C['cyan'])
+project_card('cehv12-study-guide.svg','CEHv12 Study Guide','CEHV12_StudyGuide',['Security','Training','Labs'],['Open-source cybersecurity study guide','with practical exercises and labs.'],ART/'cehv12-study-guide.jpg',C['pink'])
+project_card('portfolio-3d.svg','Portfolio 3D','portfolio-3d',['Three.js','TypeScript','WebGPU'],['Interactive 3D portfolio with physics,','lighting and dynamic environments.'],ART/'portfolio-3d.jpg',C['blue'])
 
 # stats.svg fallback - workflow overwrites this with live values
 body = f'<rect x="1" y="1" width="1198" height="168" rx="16" fill="{C["panel"]}" stroke="{C["border"]}" stroke-width="2"/>'
@@ -184,17 +210,17 @@ for name,col in items:
     y += 44
 write('achievements.svg', svg_wrap(600,260,body))
 
-# capsule/aura footer with embedded art
-art=data_uri(ASSETS/'footer-art.png')
-extra='''<linearGradient id="footerG" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#00131D"/><stop offset=".48" stop-color="#003B32"/><stop offset=".75" stop-color="#10294A"/><stop offset="1" stop-color="#3B1239"/></linearGradient>'''
-body = f'''<path d="M0 28 Q180 6 350 30 T700 30 T1050 26 T1200 20 V160 H0Z" fill="url(#footerG)"/>
-<path d="M0 30 Q180 8 350 32 T700 32 T1050 28 T1200 22" fill="none" stroke="{C['green']}" stroke-opacity=".55" stroke-width="2"><animate attributeName="stroke-opacity" values=".25;.75;.25" dur="3s" repeatCount="indefinite"/></path>
-<text x="42" y="82" fill="{C['green']}" font-family="{FONT}" font-size="21" font-weight="700">LET'S CONNECT</text>
-<text x="42" y="109" fill="{C['text']}" font-family="{FONT}" font-size="13">Security automation • Cloud security • DevSecOps • AI security</text>
-<text x="42" y="136" fill="{C['muted']}" font-family="{FONT}" font-size="11">Built as a custom GitHub README system UI — terminal, pixel, aura and capsule inspired.</text>
-<image href="{art}" x="1050" y="34" width="126" height="120" preserveAspectRatio="xMidYMid meet"/>
+# footer with HQ shrine art fading in from the right
+extra = f'''<linearGradient id="ffade" x1="0" x2="1"><stop offset=".5" stop-color="{C['panel']}"/><stop offset=".72" stop-color="{C['panel']}" stop-opacity="0"/></linearGradient>
+  <clipPath id="fclip"><rect width="1200" height="240" rx="16"/></clipPath>'''
+body = f'''<g clip-path="url(#fclip)"><rect width="1200" height="240" fill="{C['panel']}"/><image href="{data_uri(ART/'footer.jpg')}" x="600" y="0" width="600" height="240" preserveAspectRatio="xMidYMid slice"/><rect width="1200" height="240" fill="url(#ffade)"/></g>
+<rect x="1" y="1" width="1198" height="238" rx="16" fill="none" stroke="{C['border']}" stroke-width="2"/>
+<text x="42" y="82" fill="{C['green']}" font-family="{FONT}" font-size="24" font-weight="700">LET'S CONNECT</text>
+<text x="42" y="120" fill="{C['text']}" font-family="{FONT}" font-size="15">Open to collaboration on security, automation</text>
+<text x="42" y="144" fill="{C['text']}" font-family="{FONT}" font-size="15">and interesting projects.</text>
+<text x="42" y="190" fill="{C['muted']}" font-family="{FONT}" font-size="12">Thanks for visiting! Links below ↓</text>
 '''
-write('footer.svg', svg_wrap(1200,160,body,extra))
+write('footer.svg', svg_wrap(1200, 240, body, extra))
 
 print('Static assets generated.')
 
@@ -224,7 +250,7 @@ LIGHT_REPLACEMENTS = {
 
 
 def make_light_variant(path: Path):
-    if path.name.endswith('-light.svg') or path.name.startswith('contribution-snake-'):
+    if path.name.endswith('-light.svg') or path.name.startswith('contribution-snake-') or path.name == 'header.svg':
         return
     text = path.read_text(encoding='utf-8')
     for dark, light in LIGHT_REPLACEMENTS.items():

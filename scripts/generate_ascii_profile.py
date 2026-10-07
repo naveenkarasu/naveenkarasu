@@ -39,7 +39,7 @@ THEMES = {
     },
 }
 
-W, H = 300, 500
+W, H = 300, 580
 left, top, size = 28, 28, 244
 cell = size / 42
 px = img.load()
@@ -51,7 +51,7 @@ def render(theme_name: str, colors: dict[str, str]) -> None:
         f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Terminal-style pixel portrait of {USERNAME}">
 <defs><filter id="g"><feGaussianBlur stdDeviation="1.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
 <rect width="100%" height="100%" rx="16" fill="{c['bg']}"/>
-<rect x="1" y="1" width="298" height="498" rx="16" fill="{c['panel']}" stroke="{c['border']}" stroke-width="2"/>
+<rect x="1" y="1" width="298" height="578" rx="16" fill="{c['panel']}" stroke="{c['border']}" stroke-width="2"/>
 <text x="24" y="24" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">avatar://{USERNAME}</text>
 '''
     ]
@@ -76,10 +76,15 @@ def render(theme_name: str, colors: dict[str, str]) -> None:
 <line x1="24" y1="294" x2="276" y2="294" stroke="{c['border']}"/>
 <text x="24" y="327" fill="{c['text']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="21" font-weight="700">Naveen Karasu</text>
 <text x="24" y="352" fill="{c['cyan']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13">Cybersecurity Engineer</text>
-<text x="24" y="390" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">&gt; whoami</text>
-<text x="24" y="410" fill="{c['muted']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">Security automation · detection</text>
-<text x="24" y="446" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">&gt; current</text>
-<text x="24" y="466" fill="{c['muted']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">Building useful security systems</text>
+<text x="24" y="384" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">&gt; whoami</text>
+<text x="24" y="402" fill="{c['muted']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">Cybersecurity Engineer building</text>
+<text x="24" y="418" fill="{c['muted']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">security automation and detection</text>
+<text x="24" y="446" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">&gt; location</text>
+<text x="24" y="464" fill="{c['muted']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">Dallas, TX</text>
+<text x="24" y="492" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">&gt; interests</text>
+<text x="24" y="510" fill="{c['muted']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">Security | AI | Cloud | Labs</text>
+<text x="24" y="538" fill="{c['green']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">&gt; currently</text>
+<text x="24" y="556" fill="{c['muted']}" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="11">Building cool things...</text>
 <circle cx="264" cy="24" r="5" fill="{c['green']}" filter="url(#g)"/>
 </svg>'''
     )

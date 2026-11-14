@@ -7,7 +7,7 @@ on:
   push:
     branches: [naveenkarasu-patch-1]
   schedule:
-    - cron: "17 4 * * *"
+     - cron: "17 4 1,15 * *"
 
 # NIGHTSHIFT-inspired hardening: read-only by default.
 # Only the publish job receives repository write access.
